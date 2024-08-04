@@ -1,0 +1,16 @@
+{
+  "id": 11,
+  "name": "커피 시럽",
+  "price": 500,
+  "imageUrl": "products/pictures/11.jpg",
+  "productOptions": [
+    { "id": 111, "name": "5개 묶음", "price": 2500, "stock": 500, "count": 0 },
+    {
+      "id": 112,
+      "name": "100개 묶음",
+      "price": 50000,
+      "stock": 888,
+      "count": 0
+    }
+  ]
+}

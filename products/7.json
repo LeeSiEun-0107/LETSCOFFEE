@@ -1,0 +1,10 @@
+{
+  "id": 7,
+  "name": "에스프레소 메이커",
+  "price": 50000,
+  "imageUrl": "products/pictures/7.jpg",
+  "productOptions": [
+    { "id": 71, "name": "기본형", "price": 50000, "stock": 5, "count": 0 },
+    { "id": 72, "name": "한정판", "price": 100000, "stock": 5, "count": 0 }
+  ]
+}

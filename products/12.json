@@ -1,0 +1,26 @@
+{
+  "id": 12,
+  "name": "에스프레소 머신",
+  "price": 300000,
+  "imageUrl": "products/pictures/12.jpg",
+  "productOptions": [
+    {
+      "id": 15,
+      "name": "기본형",
+      "price": 300000,
+      "stock": 0,
+      "created_at": "2021-08-23T22:57:22.367Z",
+      "updated_at": "2021-08-23T22:57:22.371Z",
+      "count": 0
+    },
+    {
+      "id": 26,
+      "name": "기본 도구 추가형",
+      "price": 400000,
+      "stock": 5,
+      "created_at": "2021-08-23T23:03:39.440Z",
+      "updated_at": "2021-08-23T23:03:39.444Z",
+      "count": 0
+    }
+  ]
+}

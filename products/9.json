@@ -1,0 +1,35 @@
+{
+  "id": 9,
+  "name": "티 메이커",
+  "price": 35000,
+  "imageUrl": "products/pictures/9.jpg",
+  "productOptions": [
+    {
+      "id": 18,
+      "name": "기본형",
+      "price": 35000,
+      "stock": 55,
+      "created_at": "2021-08-23T23:00:06.005Z",
+      "updated_at": "2021-08-23T23:00:39.946Z",
+      "count": 0
+    },
+    {
+      "id": 19,
+      "name": "한정 컬러판",
+      "price": 45000,
+      "stock": 1,
+      "created_at": "2021-08-23T23:00:58.253Z",
+      "updated_at": "2021-08-23T23:00:58.258Z",
+      "count": 0
+    },
+    {
+      "id": 20,
+      "name": "기본 찻잎 샘플러 5종 포함",
+      "price": 55000,
+      "stock": 5,
+      "created_at": "2021-08-23T23:01:19.193Z",
+      "updated_at": "2021-08-23T23:01:19.198Z",
+      "count": 0
+    }
+  ]
+}

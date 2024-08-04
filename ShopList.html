@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>장바구니</title>
+  </head>
+  <body>
+    <h1>장바구니</h1>
+    <table class="WishList"></table>
+    <button type="button" class="Order_button" onclick="orderFunction();">
+      결제하기
+    </button>
+    <button type="button" class="Wish_button" onclick="wishFunction();">
+      쇼핑계속하기
+    </button>
+  </body>
+  <script>
+    var tempStorage = window.sessionStorage;
+    //console.log(tempStorage);
+
+    const xhr = new XMLHttpRequest();
+    const method = "GET";
+    const url = "products.json";
+    xhr.open(method, url);
+    xhr.send();
+    var myStorage = window.localStorage;
+
+    xhr.onload = () => {
+      //javascript 객체 생성
+      const res = JSON.parse(xhr.responseText);
+
+      if (xhr.status == 200) {
+        if (res) {
+          myStorage.setItem("json", JSON.stringify(res));
+          myStorage = myStorage.getItem("json");
+          myStorage = JSON.parse(myStorage);
+          console.log(myStorage);
+          var count = 0;
+          var compareList = Object.keys(tempStorage);
+          var compareVal = Object.values(tempStorage);
+          var thead = document.createElement("thead");
+          var tr = document.createElement("tr");
+          var th = document.createElement("th");
+          th.innerText = "사진";
+          var th2 = document.createElement("th");
+          th2.innerText = "이름";
+          var th3 = document.createElement("th");
+          th3.innerText = "가격";
+          thead.appendChild(tr);
+          tr.appendChild(th);
+          tr.appendChild(th2);
+          tr.appendChild(th3);
+
+          document.getElementsByClassName("WishList")[0].appendChild(thead);
+
+          console.log(compareList);
+          console.log(compareVal);
+          var sum = 0;
+          for (var i = 1; i < tempStorage.length; i++) {
+            var tbody = document.createElement("tbody");
+            var tr = document.createElement("tr");
+            var th = document.createElement("th");
+
+            var th2 = document.createElement("th");
+            var th3 = document.createElement("th");
+            th3.innerText = compareVal[i];
+            var img = document.createElement("img");
+            img.src = myStorage[compareList[i] - 1].imageUrl;
+            img.style =
+              "display: block; margin: 0 auto; width:100px; height:100px;";
+
+            th.innerText = myStorage[compareList[i] - 1].name;
+
+            tbody.appendChild(tr);
+            tr.appendChild(th2);
+            tr.appendChild(th);
+            tr.appendChild(th3);
+            th2.appendChild(img);
+
+            document.getElementsByClassName("WishList")[0].appendChild(tbody);
+
+            console.log(myStorage[compareList[i] - 1].id);
+            console.log(myStorage[compareList[i] - 1].name);
+            sum = sum + Number(compareVal[i]);
+            console.log(compareVal[i]);
+            console.log(myStorage[compareList[i] - 1].imageUrl);
+          }
+          var tfoot = document.createElement("tfoot");
+          var tr = document.createElement("tr");
+          var th = document.createElement("th");
+          th.innerText = "합계";
+          var th3 = document.createElement("th");
+          var th2 = document.createElement("th");
+          th2.setAttribute("id", "result");
+          th2.innerText = sum;
+          tfoot.appendChild(tr);
+          tr.appendChild(th);
+          tr.appendChild(th3);
+          tr.appendChild(th2);
+          document.getElementsByClassName("WishList")[0].appendChild(tfoot);
+        }
+      } else {
+        console.error(xhr.status, xhr.statusText);
+      }
+    };
+
+    function orderFunction(obj) {
+      alert(document.getElementById("result").innerText + "원 결제되었습니다!");
+      tempStorage.clear();
+      location.href = "index.html";
+    }
+
+    function wishFunction(obj) {
+      location.href = "index.html";
+    }
+    //getElementsByClassName에서 index를 선택하지 않으면 오류가 남
+  </script>
+</html>

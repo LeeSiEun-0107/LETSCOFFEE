@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div class="Wrap">
+      <main class="App">
+        <div class="Header">
+          <h1>LETSCOFFEE</h1>
+          <button type="button" class="Wish_button" onclick="wishFunction();">
+            <img src="icon/shop.png" />
+          </button>
+        </div>
+        <div class="Product_info"></div>
+      </main>
+    </div>
+    <footer>
+      <p>
+        (주)LETSCOFFEE<br /><br />개발자:이시은<br />e-mail:te04056@naver.com<br />문의
+        : 010-7764-8201
+      </p>
+    </footer>
+  </body>
+  <script>
+    const xhr = new XMLHttpRequest();
+    const method = "GET";
+    const url = "products.json";
+    // var param = {};
+    xhr.open(method, url);
+    xhr.send();
+    var myStorage = window.localStorage;
+    // myStorage.setItem("name", "sieun");
+    // alert(myStorage.getItem("name"));
+
+    xhr.onload = () => {
+      //javascript 객체 생성
+      const res = JSON.parse(xhr.responseText);
+
+      if (xhr.status == 200) {
+        if (res) {
+          myStorage.setItem("json", JSON.stringify(res));
+          console.log(myStorage.getItem("json"));
+
+          for (var i = 0; res.length; i++) {
+            // console.log(xhr.response);(
+
+            // if (i % 3 == 0) {
+            //   var wrap = document.createElement("div");
+            //   wrap.setAttribute("class", "wrap");
+            //   var targetDiv =
+            //     document.getElementsByClassName("Product__info")[0];
+            //   targetDiv.appendChild(wrap);
+            //}
+
+            var content = document.createElement("div");
+            content.setAttribute("class", "product");
+
+            var nameDiv = document.createElement("div");
+            nameDiv.setAttribute("class", "name");
+            var priceDiv = document.createElement("div");
+            priceDiv.setAttribute("class", "price");
+            var imgDiv = document.createElement("img");
+            imgDiv.setAttribute("id", i + 1);
+            imgDiv.style = "display: flex; width:280px";
+            nameDiv.innerText = res[i].name;
+            var price2 = res[i].price;
+            var price3 =
+              price2.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "원";
+            priceDiv.innerText = price3;
+            imgDiv.setAttribute("src", res[i].imageUrl);
+            imgDiv.onclick = imgClick;
+
+            var targetDiv = document.getElementsByClassName("Product_info")[0];
+            targetDiv.appendChild(content);
+            content.appendChild(imgDiv);
+            content.appendChild(nameDiv);
+            content.appendChild(priceDiv);
+
+            // console.log(myStorage.getItem("json"));
+            // myStorage.setItem("name", res[i].name);
+            // myStorage.setItem("price", res[i].price);
+            // myStorage.setItem("imageUrl", res[i].imageUrl);
+          }
+          //myStorage.setItem("height", "165");
+          // param.name = "이시은";
+          // console.log(param.name);
+
+          // myStorage.setItem("a", "이시은");
+          // console.log(myStorage.getItem("a"));
+        }
+      } else {
+        console.error(xhr.status, xhr.statusText);
+      }
+    };
+
+    function imgClick(e) {
+      console.log(e.srcElement.id); //index
+      var tempStorage = window.sessionStorage;
+      var myStorage = window.localStorage.getItem("json");
+      const res = JSON.parse(myStorage);
+      tempStorage.setItem("seq", e.srcElement.id);
+      tempStorage.setItem("name", res[e.srcElement.id - 1].name);
+
+      // alert(res[e.srcElement.id - 1].name);
+      // console.log(tempStorage.getItem("seq"));
+      // alert("hi");
+      // myStorage.setItem("name", res[0].name);
+      // myStorage.setItem("price", res[0].price);
+      // myStorage.setItem("imageUrl", res[0].imageUrl);
+      location.href = "ProductInfo.html";
+    }
+
+    function wishFunction(obj) {
+      location.href = "ShopList.html";
+    }
+  </script>
+</html>

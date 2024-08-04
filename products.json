@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "name": "커피 컵",
+    "imageUrl": "products/pictures/1.jpg",
+    "price": 10000
+  },
+  {
+    "id": 2,
+    "name": "커피컵 종이홀더",
+    "imageUrl": "products/pictures/2.jpg",
+    "price": 1000
+  },
+  {
+    "id": 3,
+    "name": "커피 머신",
+    "imageUrl": "products/pictures/3.jpg",
+    "price": 500000
+  },
+  {
+    "id": 4,
+    "name": "우유 거품기",
+    "imageUrl": "products/pictures/4.jpg",
+    "price": 20000
+  },
+  {
+    "id": 5,
+    "name": "우유용 컵",
+    "imageUrl": "products/pictures/5.jpg",
+    "price": 10000
+  },
+  {
+    "id": 6,
+    "name": "그렙 커피",
+    "imageUrl": "products/pictures/6.jpg",
+    "price": 3000
+  },
+  {
+    "id": 7,
+    "name": "에스프레소 메이커",
+    "imageUrl": "products/pictures/7.jpg",
+    "price": 50000
+  },
+  {
+    "id": 8,
+    "name": "냉동 샌드위치",
+    "imageUrl": "products/pictures/8.jpg",
+    "price": 10000
+  },
+  {
+    "id": 9,
+    "name": "티 메이커",
+    "imageUrl": "products/pictures/9.jpg",
+    "price": 35000
+  },
+  {
+    "id": 10,
+    "name": "각설탕 묶음",
+    "imageUrl": "products/pictures/10.jpg",
+    "price": 500
+  },
+  {
+    "id": 11,
+    "name": "커피 시럽",
+    "imageUrl": "products/pictures/11.jpg",
+    "price": 500
+  },
+  {
+    "id": 12,
+    "name": "에스프레소 머신",
+    "imageUrl": "products/pictures/12.jpg",
+    "price": 300000
+  }
+]

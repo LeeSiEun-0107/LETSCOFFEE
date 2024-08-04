@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="ProductInfo.css" />
+  </head>
+  <body>
+    <div class="Wrap2">
+      <div class="Wrap">
+        <div class="Header">
+          <h1>LETSCOFFEE</h1>
+          <button type="button" class="Wish_button" onclick="wishFunction();">
+            <img class="button_img" src="icon/shop.png" />
+          </button>
+        </div>
+        <div class="Content">
+          <div class="image"></div>
+          <div class="info">
+            <div class="product_info"></div>
+            <select class="productList" onchange="selectProduct()"></select>
+            <div class="ProductDetail__selectedOptions"></div>
+            <div class="ProductDetail__info"></div>
+            <div class="ProductDetail__result"></div>
+            <button
+              type="button"
+              class="Order_button"
+              onclick="orderFunction();"
+            >
+              결제하기
+            </button>
+            <button type="button" class="Wish_button" onclick="wishFunction();">
+              장바구니
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    window.onpageshow = function (event) {
+      if (
+        event.persisted ||
+        (window.performance && window.performance.navigation.type == 2)
+      ) {
+        // Back Forward Cache로 브라우저가 로딩될 경우 혹은 브라우저 뒤로가기 했을 경우
+        // 이벤트 추가하는 곳
+        location.href = "index.html";
+      }
+    };
+    // var myStorage = JSON.parse(window.localStorage.getItem("json"));
+    //localStorage.clear();
+    var tempStorage = window.sessionStorage;
+    //var localStorage = window.localStorage;
+
+    var seq = tempStorage.getItem("seq");
+
+    // console.log(myStorage[seq]);
+    console.log(seq);
+    const xhr = new XMLHttpRequest();
+    const method = "GET";
+    const url = "products/" + seq + ".json";
+
+    // var param = {};
+    xhr.open(method, url);
+    xhr.send();
+
+    result = [];
+    var id = -1;
+    xhr.onload = () => {
+      const res = JSON.parse(xhr.responseText);
+
+      //localStorage.setItem("result", JSON.stringify(res["productOptions"]));
+
+      //localStorage.setItem("result", JSON.stringify(res["productOptions"]));
+
+      //alert(res.name);
+      console.log(res);
+
+      id = res.id;
+      // localStorage.setItem("item_id", res.id);
+      // localStorage.setItem("item_nm", res.name);
+
+      result = res.productOptions;
+
+      var imgDiv = document.createElement("img");
+      imgDiv.setAttribute("class", "product_img");
+      imgDiv.setAttribute("src", res.imageUrl);
+
+      var h2Div = document.createElement("h2");
+      var product = res.name;
+      h2Div.innerText = `${product}`;
+      h2Div.style = "font-size : 1rem;";
+
+      var priceDiv = document.createElement("div");
+      var price = res.price;
+      priceDiv.innerText = `${price}원 ~ `;
+      priceDiv.style = "font-size : 1rem;";
+
+      var productOptions = res.productOptions;
+      const defaultObj = { id: 0, name: "선택해주세요" };
+      //const : 변하지 않을 값의 자료형
+      //let : 선언 후 값이 변할 때
+      //var : let과 동일한 역할
+      productOptions.unshift(defaultObj);
+      var targetDiv = document.getElementsByClassName("image")[0];
+      targetDiv.appendChild(imgDiv);
+      var targetDiv = document.getElementsByClassName("product_info")[0];
+
+      targetDiv.appendChild(h2Div);
+      targetDiv.appendChild(priceDiv);
+
+      var targetDiv2 = document.getElementsByClassName("productList")[0];
+
+      //   targetDiv2.onClick = comboClick;
+      for (let i = 0; productOptions.length; i++) {
+        var productList = document.createElement("option");
+        productList.setAttribute("id", productOptions[i].id);
+        productList.setAttribute("seq", i);
+        productList.innerText = productOptions[i].name;
+        targetDiv2.appendChild(productList);
+        //tempStorage.setItem(i, 0);
+      }
+    };
+    var sum = 0;
+    //tempStorage에는 name, seq등이 들어있음.
+    function selectProduct() {
+      var name = tempStorage.getItem("name");
+      //console.log("str" + str);
+      console.log(name);
+      let a = document.getElementsByClassName("productList")[0];
+
+      result[a.selectedIndex].count += 1;
+      console.log("selectProduct" + result[a.selectedIndex].count);
+      text = "";
+
+      console.log(result);
+
+      var delDiv = document.getElementsByClassName(
+        "ProductDetail__selectedOptions"
+      )[0];
+
+      console.log(
+        "선택자>>>>>",
+        document.getElementsByClassName("productList")[0].selectedIndex
+      );
+      document.getElementsByClassName("productList")[0].selectedIndex = 0;
+
+      delDiv.remove();
+      //클릭을 하면 배열을 다시 보여주게끔..
+      var targetDiv = document.getElementsByClassName("ProductDetail__info")[0];
+      var targetDiv2 = document.createElement("div");
+      var targetDiv3 = document.createElement("div");
+
+      targetDiv2.setAttribute("class", "ProductDetail__selectedOptions");
+
+      targetDiv.appendChild(targetDiv2);
+      targetDiv.appendChild(targetDiv3);
+      sum = 0;
+      for (var i = 1; result.length; i++) {
+        if (result[i].count != 0) {
+          var tr = document.createElement("tr");
+          var b = document.createElement("td");
+          var c = document.createElement("td");
+          c.setAttribute("class", "ProductDetail__selectedPrice");
+
+          b.innerText = result[i].name + " " + result[i].count + "set";
+
+          var price = result[i].count * result[i].price;
+          c.innerText =
+            price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "원";
+          // c.innerText = result[i].count * result[i].price;
+          sum = sum + parseInt(price);
+          tr.appendChild(b);
+          tr.appendChild(c);
+          targetDiv2.appendChild(tr);
+
+          var targetDiv = document.getElementsByClassName(
+            "ProductDetail__result"
+          )[0];
+          targetDiv.innerText =
+            sum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "원";
+        }
+      }
+    }
+
+    function orderFunction(obj) {
+      alert(sum + "가 결제 되었습니다");
+    }
+
+    function wishFunction(obj) {
+      tempStorage.setItem(id, sum);
+      sessionStorage.removeItem("seq");
+      sessionStorage.removeItem("name");
+
+      console.log("tempStorage");
+      console.log(tempStorage);
+      console.log("localStorage");
+      console.log(localStorage);
+      location.href = "ShopList.html";
+    }
+  </script>
+</html>

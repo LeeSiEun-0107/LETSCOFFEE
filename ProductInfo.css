@@ -17,6 +17,7 @@ div.Wrap {
 
 h2 {
   margin: 0;
+  font-size: 1rem;
 }
 
 select {
@@ -41,19 +42,26 @@ div.Content {
   justify-content: space-evenly;
 }
 
-div.product_info {
-  display: flex;
-}
 button {
   border: 0;
   opacity: 100%;
   background-color: transparent;
   transition: background 0.3s ease-in-out;
 }
+div.product_info {
+  border-top: 0.5px solid rgb(67, 67, 67);
+  border-bottom: 0.5px solid rgb(67, 67, 67);
+}
 
 div.ProductListPage {
   display: flex;
   justify-content: space-between;
+}
+
+div.ProductDetail__result {
+  text-align: right;
+  border-top: 0.5px solid rgb(67, 67, 67);
+  font-weight: 600;
 }
 
 img.button_img {
@@ -67,5 +75,9 @@ img.product_img {
 }
 
 td {
-  font-weight: 600;
+}
+
+tr {
+  display: flex;
+  justify-content: space-between;
 }

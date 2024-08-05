@@ -22,8 +22,10 @@
           <div class="image"></div>
           <div class="info">
             <div class="product_info"></div>
+            <h2 class="product_content">주문 선택사항</h2>
             <select class="productList" onchange="selectProduct()"></select>
             <div class="ProductDetail__selectedOptions"></div>
+            <h2 class="product_content">주문 목록</h2>
             <div class="ProductDetail__info"></div>
             <div class="ProductDetail__result"></div>
             <button
@@ -98,7 +100,7 @@
 
       var priceDiv = document.createElement("div");
       var price = res.price;
-      priceDiv.innerText = `${price}원 ~ `;
+      priceDiv.innerText = `${price}원`;
       priceDiv.style = "font-size : 1rem;";
 
       var productOptions = res.productOptions;
@@ -168,7 +170,7 @@
           var c = document.createElement("td");
           c.setAttribute("class", "ProductDetail__selectedPrice");
 
-          b.innerText = result[i].name + " " + result[i].count + "set";
+          b.innerText = result[i].name + " / " + result[i].count + "개";
 
           var price = result[i].count * result[i].price;
           c.innerText =

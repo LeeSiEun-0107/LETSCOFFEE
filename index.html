@@ -12,12 +12,13 @@
   <body>
     <div class="Wrap">
       <main class="App">
-        <div class="Header">
+        <!-- <div class="Header">
           <h1>LETSCOFFEE</h1>
           <button type="button" class="Wish_button" onclick="wishFunction();">
             <img src="icon/shop.png" />
           </button>
-        </div>
+        </div> -->
+        <div id="Header"></div>
         <div class="Product_info"></div>
       </main>
     </div>
@@ -29,6 +30,16 @@
     </footer>
   </body>
   <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      fetch("header.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("Header").innerHTML = data;
+        })
+        .catch((error) => {
+          console.log("헤더 가져오지 못하는 오류 발생", error);
+        });
+    });
     const xhr = new XMLHttpRequest();
     const method = "GET";
     const url = "products.json";

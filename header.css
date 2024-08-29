@@ -1,0 +1,21 @@
+div.Header {
+  display: flex;
+  justify-content: space-between;
+}
+
+img {
+  width: 2rem;
+  display: block;
+  padding-bottom: 5px;
+}
+
+button {
+  border: 0;
+  opacity: 100%;
+  background-color: transparent;
+  transition: background 0.3s ease-in-out;
+}
+
+button:hover {
+  opacity: 30%;
+}

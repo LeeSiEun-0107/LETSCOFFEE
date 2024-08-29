@@ -9,6 +9,11 @@ div.Wrap {
   justify-content: center;
 }
 
+/* div.Header {
+  display: flex;
+  justify-content: space-between;
+} */
+
 button {
   border: 0;
   opacity: 100%;
@@ -16,20 +21,15 @@ button {
   transition: background 0.3s ease-in-out;
 }
 
-div.Header {
-  display: flex;
-  justify-content: space-between;
-}
-
-img {
+/* img {
   width: 2rem;
   display: block;
   padding-bottom: 5px;
-}
+} */
 
-button:hover {
+/* button:hover {
   opacity: 30%;
-}
+} */
 div.Product_info {
   width: 990px;
   display: flex;
@@ -43,10 +43,7 @@ div.product {
 div.name {
   font-weight: 700;
 }
-div.price {
-}
-img {
-}
+
 h1 {
   padding-bottom: 30px;
   padding-top: 30px;

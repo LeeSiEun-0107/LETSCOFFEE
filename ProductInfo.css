@@ -7,6 +7,12 @@ div.Wrap2 {
   display: flex;
   justify-content: center;
 }
+
+/* div.Header {
+  display: flex;
+  justify-content: space-between;
+} */
+
 div.Wrap {
   margin: 0;
   font-family: "Noto Sans KR", sans-serif;
@@ -20,6 +26,10 @@ h2 {
   font-size: 1rem;
 }
 
+h2.product_content {
+  margin-top: 1rem;
+  margin-bottom: 0.3rem;
+}
 select {
   font-family: "Noto Sans KR", sans-serif;
   border-radius: 5px;
@@ -28,26 +38,62 @@ select {
 }
 
 div.Header {
-  width: 990px;
+  /* width: 990px; */
   display: flex;
   justify-content: space-between;
 }
 
 div.Content {
   width: 990px;
-
   flex-wrap: wrap;
-
   display: flex;
   justify-content: space-evenly;
 }
 
-button {
+div.Button_layout {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+/* button {
   border: 0;
   opacity: 100%;
   background-color: transparent;
   transition: background 0.3s ease-in-out;
+  font-size: 1rem;
+} */
+
+.Order_button:hover {
+  background-color: rgb(255, 221, 0);
 }
+
+button.Wish_button {
+  border: 0;
+  opacity: 100%;
+  background-color: transparent;
+  transition: background 0.3s ease-in-out;
+  flex: 1 1 40%;
+  margin: 0.1rem;
+  padding: 0.1rem;
+  border-radius: 0.2rem;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+}
+
+button.Order_button {
+  border: 0;
+  opacity: 100%;
+  background-color: black;
+  color: white;
+  transition: background 0.3s ease-in-out;
+  flex: 1 1 40%;
+  margin: 0.1rem;
+  border-radius: 0.2rem;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+}
+
 div.product_info {
   border-top: 0.5px solid rgb(67, 67, 67);
   border-bottom: 0.5px solid rgb(67, 67, 67);

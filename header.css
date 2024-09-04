@@ -1,15 +1,24 @@
 div.Header {
   display: flex;
   justify-content: space-between;
+  width: 990px;
 }
-
+a {
+  text-decoration: none;
+  color: black;
+}
+h1 {
+  padding-bottom: 30px;
+  padding-top: 30px;
+  font-size: 1.8rem;
+}
 img {
   width: 2rem;
   display: block;
   padding-bottom: 5px;
 }
 
-button {
+button.Cart_button {
   border: 0;
   opacity: 100%;
   background-color: transparent;

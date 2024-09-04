@@ -10,49 +10,49 @@
     <link rel="stylesheet" href="ProductInfo.css" />
   </head>
   <body>
-    <!-- <div class="Wrap2"> -->
-    <div class="Wrap">
-      <!-- <main class="App"> -->
-      <div id="Header"></div>
-      <!-- <div class="Header">
+    <div class="Wrap2">
+      <div class="Wrap">
+        <!-- <main class="App"> -->
+        <div id="Header"></div>
+        <!-- <div class="Header">
           <h1>LETSCOFFEE</h1>
           <button type="button" class="Shop_button" onclick="wishFunction();">
             <img class="button_img" src="icon/shop.png" />
           </button> -->
 
-      <!-- </div> -->
-      <div class="Content">
-        <div class="image"></div>
-        <div class="info">
-          <div class="product_info"></div>
-          <h2 class="product_content">주문 선택사항</h2>
-          <select class="productList" onchange="selectProduct()"></select>
-          <div class="ProductDetail__selectedOptions"></div>
-          <h2 class="product_content">주문 목록</h2>
-          <div class="ProductDetail__info"></div>
-          <div class="ProductDetail__result"></div>
-          <div class="Button_layout">
-            <button
-              class="Order_button"
-              type="button"
-              class="Wish_button"
-              onclick="wishFunction();"
-            >
-              장바구니
-            </button>
-            <button
-              type="button"
-              class="Order_button"
-              onclick="orderFunction();"
-            >
-              결제하기
-            </button>
+        <!-- </div> -->
+        <div class="Content">
+          <div class="image"></div>
+          <div class="info">
+            <div class="product_info"></div>
+            <h2 class="product_content">주문 선택사항</h2>
+            <select class="productList" onchange="selectProduct()"></select>
+            <div class="ProductDetail__selectedOptions"></div>
+            <h2 class="product_content">주문 목록</h2>
+            <div class="ProductDetail__info"></div>
+            <div class="ProductDetail__result"></div>
+            <div class="Button_layout">
+              <button
+                class="Order_button"
+                type="button"
+                class="Wish_button"
+                onclick="wishFunction();"
+              >
+                장바구니
+              </button>
+              <button
+                type="button"
+                class="Order_button"
+                onclick="orderFunction();"
+              >
+                결제하기
+              </button>
+            </div>
           </div>
         </div>
+        <!-- </main> -->
       </div>
-      <!-- </main> -->
     </div>
-    <!-- </div> -->
   </body>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
@@ -225,6 +225,9 @@
       console.log("localStorage");
       console.log(localStorage);
       location.href = "ShopList.html";
+    }
+    function indexhrefFunction(obj) {
+      location.href = "Index.html";
     }
   </script>
 </html>

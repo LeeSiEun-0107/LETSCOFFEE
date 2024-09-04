@@ -84,6 +84,8 @@
             var price2 = res[i].price;
             var price3 =
               price2.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "원";
+            // price2.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "원";
+
             priceDiv.innerText = price3;
             imgDiv.setAttribute("src", res[i].imageUrl);
             imgDiv.onclick = imgClick;

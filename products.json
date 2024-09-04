@@ -3,13 +3,13 @@
     "id": 1,
     "name": "커피 컵",
     "imageUrl": "products/pictures/1.jpg",
-    "price": 10000
+    "price": 10
   },
   {
     "id": 2,
     "name": "커피컵 종이홀더",
     "imageUrl": "products/pictures/2.jpg",
-    "price": 1000
+    "price": 50
   },
   {
     "id": 3,

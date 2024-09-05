@@ -1,0 +1,69 @@
+body {
+  margin: 0;
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 1rem;
+}
+
+#Header_Mycart {
+  text-align: center;
+  font-weight: 350;
+}
+
+div.Wrap2 {
+  display: flex;
+  justify-content: center;
+}
+
+div.Wrap {
+  margin: 0;
+  font-family: "Noto Sans KR", sans-serif;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.tb_name {
+  font-weight: 400;
+  text-align: left;
+}
+
+div.Button_layout {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+  width: 500px;
+}
+
+.Pay_button:hover {
+  background-color: rgb(255, 221, 0);
+}
+
+button.Pay_button {
+  border: 0;
+  opacity: 100%;
+  background-color: transparent;
+  transition: background 0.3s ease-in-out;
+  flex: 1 1 40%;
+  margin: 0.1rem;
+  padding: 0.1rem;
+  border-radius: 0.2rem;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+}
+
+button.Continue_button {
+  border: 0;
+  opacity: 100%;
+  background-color: black;
+  color: white;
+  transition: background 0.3s ease-in-out;
+  flex: 1 1 40%;
+  margin: 0.1rem;
+  border-radius: 0.2rem;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+}
+
+table.WishList {
+  font-size: 0.9rem;
+}

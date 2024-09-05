@@ -1,19 +1,42 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>장바구니</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="ShopList.css" />
   </head>
   <body>
-    <h1>장바구니</h1>
-    <table class="WishList"></table>
-    <button type="button" class="Order_button" onclick="orderFunction();">
-      결제하기
-    </button>
-    <button type="button" class="Wish_button" onclick="wishFunction();">
-      쇼핑계속하기
-    </button>
-  </body>
+  <div class="Wrap2">
+    <div class="Wrap">
+        <div id="Header"></div>
+        <h1 id="Header_Mycart">MY CART</h1>
+        <table class="WishList"></table>
+        <div class="Button_layout">
+          <button type="button" class="Pay_button" onclick="orderFunction();">
+            결제하기
+          </button>
+          <button type="button" class="Continue_button" onclick="wishFunction();">
+            쇼핑계속하기
+          </button>
+        </div>
+      </body>
+    </div>
+  </div>
   <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      fetch("header.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("Header").innerHTML = data;
+        })
+        .catch((error) => {
+          console.log("헤더 가져오지 못하는 오류 발생", error);
+        });
+    });
     var tempStorage = window.sessionStorage;
     //console.log(tempStorage);
 
@@ -40,11 +63,14 @@
           var thead = document.createElement("thead");
           var tr = document.createElement("tr");
           var th = document.createElement("th");
-          th.innerText = "사진";
+          // th.innerText = "사진";
+          th.setAttribute("class", "tb_img");
           var th2 = document.createElement("th");
-          th2.innerText = "이름";
+          // th2.innerText = "이름";
+          th2.setAttribute("class", "tb_name");
           var th3 = document.createElement("th");
-          th3.innerText = "가격";
+          // th3.innerText = "가격";
+          th3.setAttribute("class", "tb_cost");
           thead.appendChild(tr);
           tr.appendChild(th);
           tr.appendChild(th2);
@@ -59,9 +85,11 @@
             var tbody = document.createElement("tbody");
             var tr = document.createElement("tr");
             var th = document.createElement("th");
-
+            th.setAttribute("class", "tb_name");
             var th2 = document.createElement("th");
+            th2.setAttribute("class", "tb_img");
             var th3 = document.createElement("th");
+            th3.setAttribute("class", "tb_cost");
             th3.innerText = compareVal[i];
             var img = document.createElement("img");
             img.src = myStorage[compareList[i] - 1].imageUrl;
@@ -87,7 +115,8 @@
           var tfoot = document.createElement("tfoot");
           var tr = document.createElement("tr");
           var th = document.createElement("th");
-          th.innerText = "합계";
+          th.innerText = "Total";
+          th.setAttribute("class", "tb_name");
           var th3 = document.createElement("th");
           var th2 = document.createElement("th");
           th2.setAttribute("id", "result");
@@ -113,5 +142,9 @@
       location.href = "index.html";
     }
     //getElementsByClassName에서 index를 선택하지 않으면 오류가 남
+
+    function indexhrefFunction(obj) {
+      location.href = "Index.html";
+    }
   </script>
 </html>

@@ -22,16 +22,32 @@ div.Wrap {
   flex-direction: column;
 }
 
+.tb_img {
+  width: 2rem;
+}
 .tb_name {
   font-weight: 400;
   text-align: left;
+  vertical-align: top;
+  padding-left: 1rem;
+}
+.tb_cost {
+  vertical-align: top;
+  text-align: right;
+}
+#result {
+  vertical-align: top;
+  text-align: right;
+  font-size: 2rem;
 }
 
 div.Button_layout {
+  /* display: flex;
+  flex-wrap: wrap; */
   display: flex;
-  flex-wrap: wrap;
+  justify-content: center;
   margin-top: 1rem;
-  width: 500px;
+  /* width: 500px; */
 }
 
 .Pay_button:hover {
@@ -39,31 +55,52 @@ div.Button_layout {
 }
 
 button.Pay_button {
-  border: 0;
-  opacity: 100%;
-  background-color: transparent;
-  transition: background 0.3s ease-in-out;
-  flex: 1 1 40%;
-  margin: 0.1rem;
-  padding: 0.1rem;
-  border-radius: 0.2rem;
-  padding-top: 0.3rem;
-  padding-bottom: 0.3rem;
-}
-
-button.Continue_button {
+  padding: 3px;
+  width: 10rem;
   border: 0;
   opacity: 100%;
   background-color: black;
   color: white;
   transition: background 0.3s ease-in-out;
-  flex: 1 1 40%;
+  /* flex: 1 1 40%; */
+  margin: 0.1rem;
+  padding: 0.1rem;
+  border-radius: 0.2rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  text-align: center;
+}
+
+button.Continue_button {
+  width: 10rem;
+  border: 0.03rem solid;
+  border-color: rgb(44, 38, 0);
+  background-color: white;
+  opacity: 100%;
+  /* border-color: rgb(255, 221, 0); */
+  color: black;
+  transition: background 0.3s ease-in-out;
+  /* flex: 1 1 40%; */
   margin: 0.1rem;
   border-radius: 0.2rem;
-  padding-top: 0.3rem;
-  padding-bottom: 0.3rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  display: inline-block;
 }
 
 table.WishList {
   font-size: 0.9rem;
+  border-collapse: collapse;
+}
+
+td {
+  border: 1.3px black solid;
+  border-left: 0px;
+  border-right: 0px;
+  padding: 8px;
+  /* border-top: 0px; */
+}
+
+tfoot td {
+  border-bottom: 0px;
 }

@@ -84,13 +84,14 @@
           for (var i = 1; i < tempStorage.length; i++) {
             var tbody = document.createElement("tbody");
             var tr = document.createElement("tr");
-            var th = document.createElement("th");
+       
+            var th = document.createElement("td");
             th.setAttribute("class", "tb_name");
-            var th2 = document.createElement("th");
+            var th2 = document.createElement("td");
             th2.setAttribute("class", "tb_img");
-            var th3 = document.createElement("th");
+            var th3 = document.createElement("td");
             th3.setAttribute("class", "tb_cost");
-            th3.innerText = compareVal[i];
+            th3.innerText = compareVal[i].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
             var img = document.createElement("img");
             img.src = myStorage[compareList[i] - 1].imageUrl;
             img.style =
@@ -114,13 +115,15 @@
           }
           var tfoot = document.createElement("tfoot");
           var tr = document.createElement("tr");
-          var th = document.createElement("th");
-          th.innerText = "Total";
+          var th = document.createElement("td");
+          // th.innerText = "Total";
           th.setAttribute("class", "tb_name");
-          var th3 = document.createElement("th");
-          var th2 = document.createElement("th");
+          var th3 = document.createElement("td");
+          var th2 = document.createElement("td");
           th2.setAttribute("id", "result");
-          th2.innerText = sum;
+          //sum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+          //th2.innerText = sum;
+          th2.innerText = sum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
           tfoot.appendChild(tr);
           tr.appendChild(th);
           tr.appendChild(th3);
@@ -144,7 +147,7 @@
     //getElementsByClassName에서 index를 선택하지 않으면 오류가 남
 
     function indexhrefFunction(obj) {
-      location.href = "Index.html";
+      location.href = "index.html";
     }
   </script>
 </html>

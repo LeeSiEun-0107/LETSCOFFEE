@@ -78,8 +78,11 @@
 
           document.getElementsByClassName("WishList")[0].appendChild(thead);
 
+          console.log("[compareList]");
           console.log(compareList);
-          console.log(compareVal);
+          //console.log(""+compareVal); //여기까진 github pages에 들어옴
+          console.log("[mystorage]");
+          console.log(myStorage);
           var sum = 0;
           for (var i = 1; i < tempStorage.length; i++) {
             var tbody = document.createElement("tbody");
